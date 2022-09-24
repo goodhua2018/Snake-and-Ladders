@@ -14,6 +14,7 @@
             height: 500px;
             width: 500px;
            
+           
             
             
         }
@@ -23,10 +24,24 @@
         }
         .small-grid {
             text-align: center;
-            line-height: 50px;
+            
             border: 0.5px solid red;
             
         }
+        .player1 {
+            position: relative;
+        }
+        .img1 {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: -50px;
+            z-index: 1;
+            left: 0;
+        }
+        
+      
+    
     </style>
 </head>
 <body>
@@ -35,8 +50,15 @@
     <p class="show-num"></p>
     <img src="" alt="" class="show-dice">
     <section class="map">
-
+        
     </section>
+    
+       <div class="player1">
+            <img src="./images/bunny.png" alt="" class="img1">
+       </div>
+        
+        <!-- <img src="./images/cow.png" alt="" class="player2"> -->
+   
 
 
 
