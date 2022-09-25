@@ -47,17 +47,14 @@ function dice () {
     }
    
     let currentPlayer = players[turn];
-    let nextTurn = turn + 1;  
-    if (nextTurn >= players.length) {
-        nextTurn = 0;
-    }
-    console.log(players[nextTurn].name) 
+    
     let img = document.querySelector(`.${currentPlayer.img}`);
     let randomNum = Math.floor(Math.random() * 6) + 1;
         showNum.textContent = randomNum;
     // var showDice = document.createElement('img');
         showDice.src = "./images/dice" + randomNum + ".gif";
         currentPlayer.position += randomNum;
+        
         
   
         img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
@@ -67,10 +64,34 @@ function dice () {
         } else {
             img.style.left = `${currentPlayer.position % 10 * 50}px`;
         } 
-        turn++; 
+        if (randomNum !== 6) {
+            let nextTurn = turn + 1;  
+            if (nextTurn >= players.length) {
+                nextTurn = 0;
+            }
+            console.log(players[nextTurn].name) 
+            turn++; 
+        } else {
+            
+            console.log(players[turn].name) 
+        }
+        
 }
 
+
+
 diceBtn.addEventListener('click', dice)
+console.log(currentPlayer.position)
+if (currentPlayer.position === 5) {
+    currentPlayer.position = 35;
+    img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
+if (Math.floor(currentPlayer.position / 10) % 2 === 1) {
+    img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
+
+} else {
+    img.style.left = `${currentPlayer.position % 10 * 50}px`;
+} 
+}
 function ladder () {
     let ladders = [
         {
@@ -93,7 +114,12 @@ function ladder () {
             startPosition: 85,
             endPosition: 94
         }
-    ]
+    ];
+    ladders.forEach((ladder) => {
+        if (ladder.startPosition === currentPlayer.position) {
+            currentPlayer.position = ladder.endPosition;
+        }
+    })
 }
 
 
