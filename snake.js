@@ -73,17 +73,34 @@ function dice () {
         showNum.textContent = randomNum;
     // var showDice = document.createElement('img');
         showDice.src = "./images/dice" + randomNum + ".gif";
+        
+        let previousIndex = Math.floor(currentPlayer.position / 10)
+        let previousPosition = currentPlayer.position;
+        console.log(previousPosition)
+       
         currentPlayer.position += randomNum;
+        console.log(currentPlayer.position)
+
+        let afterIndex = Math.floor(currentPlayer.position / 10)
+        
         
         // different row
-  
-        img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
-        if (Math.floor(currentPlayer.position / 10) % 2 === 1) {
-            img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
+        if (afterIndex === previousIndex) {
+            img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
+            if (Math.floor(currentPlayer.position / 10) % 2 === 1) {
+                img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
 
+            } else {
+                img.style.left = `${currentPlayer.position % 10 * 50}px`;
+            } 
         } else {
-            img.style.left = `${currentPlayer.position % 10 * 50}px`;
-        } 
+            img.style.top = `-${Math.ceil(previousPosition / 10) * 50}px`;
+        }
+  
+        
+
+
+        // show whoes turn
         if (randomNum !== 6) {
             let nextTurn = turn + 1;  
             if (nextTurn >= players.length) {
@@ -96,7 +113,7 @@ function dice () {
             console.log(players[turn].name) 
         }
 
-        console.log(currentPlayer.position)
+        
 // if (currentPlayer.position === 5) {
 //     currentPlayer.position = 35;
 //     img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
