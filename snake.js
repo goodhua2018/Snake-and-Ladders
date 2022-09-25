@@ -84,7 +84,7 @@ function dice () {
         let afterIndex = Math.floor(currentPlayer.position / 10)
         
         
-        // different row
+        // same row
         if (afterIndex === previousIndex) {
             img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
             if (Math.floor(currentPlayer.position / 10) % 2 === 1) {
@@ -93,8 +93,34 @@ function dice () {
             } else {
                 img.style.left = `${currentPlayer.position % 10 * 50}px`;
             } 
+            // different rows
         } else {
-            img.style.top = `-${Math.ceil(previousPosition / 10) * 50}px`;
+            //previous position 1x, 3x, 5x, 7x, 9x, step direction right to left
+            if (Math.floor(previousPosition / 10) % 2 === 1) {
+                img.style.top = `-${Math.ceil(previousPosition / 10) * 50}px`;
+                img.style.left = 0
+                setTimeout(() => {
+                    img.style.top = `-${(Math.ceil(previousPosition / 10) + 1) * 50}px`;
+                    img.style.left = 0;
+                }, 2000);
+                setTimeout(() => {
+                    img.style.left = `${currentPlayer.position % 10 * 50}px`;
+                },3000)
+            } else {
+                // previous position 0x, 2x, 4x, 6x, 8x, step direction left to right
+                img.style.left = `450px`;
+                img.style.top = `-${Math.ceil(previousPosition / 10) * 50}px`;
+                setTimeout(() => {
+                    img.style.top = `-${(Math.ceil(previousPosition / 10) + 1) * 50}px`;
+                    img.style.left = `450px`;
+                }, 2000);
+                setTimeout(() => {
+                    img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
+                },3000)
+
+
+            }
+             
         }
   
         
