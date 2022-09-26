@@ -122,6 +122,12 @@ function dice () {
             }
              
         }
+        if (currentPlayer.position >= 99) {
+            console.log(`${currentPlayer.name} is the winner!`)
+            img.style.left = `200px`;
+            img.style.top = `-600px`;
+
+        }
   
         
 
@@ -138,6 +144,8 @@ function dice () {
             
             console.log(players[turn].name) 
         }
+
+
 
         
 // if (currentPlayer.position === 5) {
