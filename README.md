@@ -16,3 +16,6 @@
 - HTML
 - CSS
 
+## : further plan
+- create random map
+- add more players

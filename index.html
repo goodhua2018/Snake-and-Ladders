@@ -6,74 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> -->
-    <style>
-        .map {
-            display: grid;
-            grid-template-rows: repeat(10, 1fr);
-            height: 500px;
-            width: 500px;  
-        }
-        .row {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-        }
-        .small-grid {
-            text-align: center;
-            
-            border: 0.5px solid red;
-            
-        }
-        .player1 {
-            position: relative;
-        }
-        .img1, .img2 {
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            top: -50px;
-            z-index: 1;
-            left: 0;
-            transition: 2s;
-        }
-        .ladder {
-            position: relative;
-        }
-        .ladder1 {
-            width: 50px;
-            height: 120px;
-            position: absolute;
-            top: -110px;
-            left: 200px;
-            transform: rotate(50deg)
-        }
-        .ladder2 {
-            width: 50px;
-            height: 180px;
-            position: absolute;
-            top: -260px;
-            left: 300px;
-            transform: rotate(-50deg)
-        }
-        .ladder3 {
-            width: 50px;
-            height: 150px;
-            position: absolute;
-            top: -350px;
-            left: 120px;
-            transform: rotate(20deg)
-        }
-        .ladder4 {
-            width: 50px;
-            height: 140px;
-            position: absolute;
-            top: -440px;
-            left: 380px;
-            transform: rotate(-30deg)
-        }
-        
-      
-    
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <script defer type="text/javascript" src="./snake.js"></script>
 </head>
 <body>
     <h1>Hello </h1>
@@ -94,13 +28,7 @@
         <img src="./images/ladder4.png" alt="" class="ladder2">
         <img src="./images/ladder4.png" alt="" class="ladder3">
         <img src="./images/ladder4.png" alt="" class="ladder4">
-        
-
     </div>
-       
-    <script type="text/javascript" src="./snake.js"></script>
-    
-    
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> -->
     
 </body>
