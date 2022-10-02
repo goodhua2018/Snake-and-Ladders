@@ -59,8 +59,6 @@ let ladders = [
 
 
 let turn = 0;
-
-
 function dice () {
     if (turn >= players.length) {
         turn = 0;
@@ -83,7 +81,17 @@ function dice () {
 
         let afterIndex = Math.floor(currentPlayer.position / 10)
         
-        
+        if (currentPlayer.position >= 99) {
+          currentPlayer.position = 99;
+            console.log(`${currentPlayer.name} is the winner!`)
+              img.style.left = 0;
+              img.style.top = `-500px`;
+            setTimeout(() => { 
+              img.style.left = `450px`;
+              img.style.top = `-650px`;
+              img.classList.add('bigger');
+            }, 3000)
+        }
         // same row
         if (afterIndex === previousIndex) {
             img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
@@ -117,21 +125,12 @@ function dice () {
                 setTimeout(() => {
                     img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
                 },3000)
-
-
             }
              
         }
-        if (currentPlayer.position >= 99) {
-            console.log(`${currentPlayer.name} is the winner!`)
-            img.style.left = `200px`;
-            img.style.top = `-600px`;
-
-        }
+        
   
         
-
-
         // show whoes turn
         if (randomNum !== 6) {
             let nextTurn = turn + 1;  

@@ -26,6 +26,10 @@
     left: 0;
     transition: 2s;
 }
+.bigger {
+    width: 100px;
+    height: 100px;
+}
 .ladder {
     position: relative;
 }
