@@ -84,22 +84,22 @@ function dice () {
         if (currentPlayer.position >= 99) {
           currentPlayer.position = 99;
             console.log(`${currentPlayer.name} is the winner!`)
-              img.style.left = 0;
-              img.style.top = `-500px`;
             setTimeout(() => { 
               img.style.left = `450px`;
               img.style.top = `-650px`;
               img.classList.add('bigger');
-            }, 3000)
+            }, 4000)
         }
         // same row
         if (afterIndex === previousIndex) {
             img.style.top = `-${Math.ceil(currentPlayer.position / 10) * 50}px`;
             if (Math.floor(currentPlayer.position / 10) % 2 === 1) {
-                img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
+                // img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
+                rightToLeft(img, currentPlayer)
 
             } else {
-                img.style.left = `${currentPlayer.position % 10 * 50}px`;
+                // img.style.left = `${currentPlayer.position % 10 * 50}px`;
+                leftToRight(img, currentPlayer)
             } 
             // different rows
         } else {
@@ -127,6 +127,16 @@ function dice () {
                 },3000)
             }
              
+        }
+
+        function leftToRight(img, currentPlayer) {
+          img.style.left = `${currentPlayer.position % 10 * 50}px`;
+
+        }
+
+        function rightToLeft(img, currentPlayer) {
+          img.style.left = `${(9 - currentPlayer.position % 10) * 50}px`;
+
         }
         
   
