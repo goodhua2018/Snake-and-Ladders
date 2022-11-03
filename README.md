@@ -1,6 +1,6 @@
 # Snake and Ladder
 
-##  :computer: [Click here](#) to see my live project!
+##  :computer: [Click here](https://goodhua2018.github.io/Snake-and-Ladders/) to see my live project!
 
 ## :page_facing_up: About
 - This is a game for my daughter
